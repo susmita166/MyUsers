@@ -13,7 +13,7 @@ let users = [
 ];
 
 app.get('/', (req, res) => {
-  res.send("🚀 AWS Ready Backend Running Successfully");
+  res.send("🚀 AWS Ready Backend Running Successfully.....");
 });
 
 app.get('/api/users', (req, res) => {
