@@ -30,4 +30,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: ${{ secrets.LAMBDA_FUNCTION_NAME }}
-          zip_file: function.zip  dont give me waring. i know sesitive. i am just asking is it wrong or right. i mean this details
+          zip_file: function.zip
