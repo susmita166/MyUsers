@@ -13,7 +13,7 @@ let users = [
 ];
 
 app.get('/', (req, res) => {
-  res.send("🚀 Project Running Successfully.....");
+  res.send("🚀 Hello Prasanna Running Successfully.....");
 });
 
 app.get('/api/users', (req, res) => {
