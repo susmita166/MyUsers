@@ -1,0 +1,33 @@
+name: Deploy to AWS Lambda
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Install only production dependencies
+      - name: Install dependencies
+        run: npm install --omit=dev
+
+      # Step 3: Zip the project
+      - name: Zip project
+        run: zip -r function.zip . -x "*.git*" "node_modules/.cache/*" "*.github/*"
+
+      # Step 4: Deploy to Lambda
+      - name: Deploy to Lambda
+        uses: appleboy/lambda-action@v0.1.9
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: ${{ secrets.LAMBDA_FUNCTION_NAME }}
+          zip_file: function.zip  dont give me waring. i know sesitive. i am just asking is it wrong or right. i mean this details
